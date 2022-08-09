@@ -102,24 +102,24 @@ $ sudo rm -rf /opt/kasm/
 
 1. Generate CA private key:
 ```bash
-$ openssl genrsa -aes256 -out cybethme-ca.key 2048
+$ openssl genrsa -aes256 -out majician-ca.key 2048
 ```
 
 2. Generate CA Root Certificate (10ys validity):
 ```bash
-$ openssl req -x509 -new -nodes -key cybethme-ca.key -sha256 -days 3650 -out cybethme-ca.pem
+$ openssl req -x509 -new -nodes -key majician-ca.key -sha256 -days 3650 -out majician-ca.pem
 ```
 
 3. ca-certificates expects PEM files with *.crt extension, so let's give it to him:
 ```bash
-$ sudo cp cybethme-ca.pem /usr/local/share/ca-certificates/cybethme-ca.crt
+$ sudo cp majician-ca.pem /usr/local/share/ca-certificates/majician-ca.crt
 ```
 
 4. Update certificates database and verify:
 ```bash
 $ sudo update-ca-certificates
 # sudo update-ca-certificates --fresh / to rebuild from scratch
-$ awk -v cmd='openssl x509 -noout -subject' '/BEGIN/{close(cmd)};{print | cmd}' < /etc/ssl/certs/ca-certificates.crt | grep Cyber
+$ awk -v cmd='openssl x509 -noout -subject' '/BEGIN/{close(cmd)};{print | cmd}' < /etc/ssl/certs/ca-certificates.crt | grep majician
 ```
 
 ## Acquire private certificate for Kasm Workspaces
@@ -146,7 +146,7 @@ DNS.1 = kasm.rpi
 
 4. Create signed certificate for the Kasm:
 ```bash
-$ openssl x509 -req -in kasm.rpi.csr -CA cybethme-ca.pem -CAkey cybethme-ca.key -CAcreateserial -out kasm.rpi.crt -days 730 -sha256 -extfile kasm.rpi.ext
+$ openssl x509 -req -in kasm.rpi.csr -CA majician-ca.pem -CAkey majician-ca.key -CAcreateserial -out kasm.rpi.crt -days 730 -sha256 -extfile kasm.rpi.ext
 ```
 
 
