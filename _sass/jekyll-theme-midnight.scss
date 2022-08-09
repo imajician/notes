@@ -169,12 +169,12 @@ dt {
     max-width: 650px;
     margin: 0 auto;
     padding: 0 10px;
-    background: blue;
-    margin: 6px auto;
+    background: #353535;
+    margin: 10px auto;
 
     ul {
       list-style-type: none;
-      margin: 0;
+      margin-right: 0;
       padding: 0;
 
       li {
@@ -211,7 +211,7 @@ dt {
         }
 
         &.fork {
-          float: left;
+          float: right;
           margin-left: 0px;
         }
 
