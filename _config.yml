@@ -28,12 +28,12 @@ twitter_username: mhchi87
 github_username:  imajician
 
 # Build settings
-theme: minima
+theme: jekyll-theme-midnight
 plugins:
   - jekyll-feed
   - jekyll-remote-theme # add this line to the plugins list if you already have one
-  
-remote_theme: pages-themes/midnight@v0.2.0
+
+remote_theme: pages-themes/midnight
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
