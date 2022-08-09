@@ -22,8 +22,8 @@ title: Notes
 email: imajician@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Quick reference 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# baseurl: "" # the subpath of your site, e.g. /blog
+url: "imajician.github.io/ehr" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mhchi87
 github_username:  imajician
 
@@ -33,11 +33,12 @@ plugins:
   - jekyll-feed
   - jekyll-remote-theme # add this line to the plugins list if you already have one
 
+
 remote_theme: pages-themes/midnight
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
+# the internal "default list"je.
 #
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.

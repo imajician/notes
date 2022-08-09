@@ -1,7 +1,7 @@
 ---
 layout: page
 title: SSH 
-description: Quick Start Guide
+description: Quick Reference Guide for Setup
 ---
 
 
@@ -101,6 +101,16 @@ $ scp user@remote:/file.txt ~/file.txt
 ```
 
 <br>
+
+## SSH Tunneling / Port Forwarding
+
+```bash
+$ ssh username@remote-server -L 5901:localhost:5900
+
+$ ssh username@remote-server -R 5900:remote-server:5901
+```
+
+<br>
 <br>
 
 ## Common Commands
@@ -150,3 +160,8 @@ $ sudo su
 $ passwd user
 
 ```
+
+
+<br>
+<br>
+
