@@ -7,6 +7,8 @@ description: Quick Start Guide
 # Preparation
 --------
 
+[Official Installation Page](https://kasmweb.com/docs/latest/install/single_server_install.html)
+
 ## Swap Memory
 
 ```bash
@@ -23,8 +25,10 @@ $ echo '/mnt/4GiB.swap swap swap defaults 0 0' | sudo tee -a /etc/fstab
 ```bash
 $ cat /proc/swaps
 ```
-
-## Standard Installation 
+<br>
+# Installation 
+-----------
+- Standard installation
 ```bash
 $ cd /tmp
 $ curl -O https://kasm-static-content.s3.amazonaws.com/kasm_release_1.11.0.18142e.tar.gz
@@ -36,37 +40,39 @@ $ sudo bash kasm_release/install.sh
  
 - If you would like to run the Web Application on a different port pass the -L flag when calling the installer. e.g **sudo bash kasm_release/install.sh -L 8443**
 
+<br>
 
-## Uninstall
+# Uninstallation
+-------------
 
-- Stop All Kasm services.
+1. Stop All Kasm services.
 ```bash
 $ sudo /opt/kasm/current/bin/stop
 ```
 
-- Remove any Kasm session containers.
+2. Remove any Kasm session containers.
 ```bash
 $ sudo docker rm -f $(sudo docker container ls -qa --filter="label=kasm.kasmid")
 ```
 
-- Remove Kasm service containers.
+3. Remove Kasm service containers.
 ```bash
 $ export KASM_UID=$(id kasm -u)
 $ export KASM_GID=$(id kasm -g)
 $ sudo -E docker-compose -f /opt/kasm/current/docker/docker-compose.yaml rm
 ```
 
-- Remove the Kasm docker network.
+4. Remove the Kasm docker network.
 ```bash
 $ sudo docker network rm kasm_default_network
 ```
 
-- Remove the Kasm database docker volume.
+5. Remove the Kasm database docker volume.
 ```bash
 $ sudo docker volume rm kasm_db_1.11.0
 ```
 
-- Remove the Kasm docker images.
+6. Remove the Kasm docker images.
 ```bash
 $ sudo docker rmi redis:5-alpine
 $ sudo docker rmi postgres:9.5-alpine
@@ -78,7 +84,7 @@ $ sudo docker rmi kasmweb/api:1.11.0
 $ sudo docker rmi $(sudo docker images --filter "label=com.kasmweb.image=true" -q)
 ```
 
-- Remove the Kasm installation directory structure.
+7. Remove the Kasm installation directory structure.
 ```bash
 $ sudo rm -rf /opt/kasm/
 ```
